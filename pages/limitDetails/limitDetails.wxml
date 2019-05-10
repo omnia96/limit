@@ -1,11 +1,14 @@
-<map 
-    id="map4select" 
-    longitude="{{longitude}}" 
-    latitude="{{latitude}}" 
-    markers="{{markers}}" 
-    bindregionchange="regionchange" 
-    polygons="{{polygon}}"
-    style="width: 100%; height: 100vw;"
-    scale="10"
-    >
-</map>
+<view class="container">
+    <view class="header">
+        <map id="map4select" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"
+            bindregionchange="regionchange" polygons="{{polygon}}" style="width: 100%; height: 100%;" scale="10">
+        </map>
+    </view>
+    <view class="placeholder"></view>
+    <view class="content">
+    <view class="content-item" wx:for="{{limitInfo}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+        <view class="title">{{item.title}}</view>
+        <view class="subtitle">{{item.subtitle}}</view>
+    </view>
+</view>
+</view>

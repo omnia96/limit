@@ -7,6 +7,7 @@ Page({
   data: {
     longitude:108.93984,
     latitude:34.34127,
+    limitInfo:null,
     polygon:[{
       points: [
         {
@@ -59,17 +60,12 @@ Page({
       zIndex:1
     }]
   },
-  markertap(e) {
-    console.log(e)
-  },
-  controltap(e) {
-    console.log(e.controlId)
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    
   },
 
   /**
