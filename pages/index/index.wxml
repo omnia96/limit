@@ -1,0 +1,42 @@
+<view class="container">
+    <view class="header"></view>
+    <view class="location">西安市</view>
+    <view class="car-card">
+        <view class="car-card-title">我的爱车:</view>
+        <view class="car-card-content">陕A12345</view>
+        <view class="car-card-message">今日不限行</view>
+    </view>
+    <view class="tail-number-bar">
+        <view class="tail-number-bar-tab">
+            <i-tabs current="{{ current }}" color="#f759ab" bindchange="handleChange">
+                <i-tab key="tab1" title="本地"></i-tab>
+                <i-tab key="tab2" title="异地"></i-tab>
+            </i-tabs>
+        </view>
+        <view class="tail-number-bar-title">
+          
+        </view>
+        <view class="tail-number-bar-content">
+            <view class="week" wx:for="{{showRules.number}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+                <view class="week-num-top">{{item["num1"]}}</view>
+                <view class="week-num-bot">{{item.num2}}</view>
+                <view class="week-num-con">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="limit-line-title">
+            <view class="limit-line-title-start">限行时间</view>
+            <view class="limit-line-title-end">{{showRules.rules[0].time.title}}</view>
+        </view>
+        <view class="limit-line-content">
+            <view class="limit-line-content-start">限行规则</view>
+            <view class="limit-line-content-end">
+                <view class="limit-line-content-end-item" wx:for="{{showRules.rules}}" wx:key="ke" wx:for-index="index" wx:for-item="item">
+                    <view >{{item.limitArea.title}}</view>
+                    <view class="prompt">详细信息</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
