@@ -87,8 +87,8 @@ Page({
     }).then(result => {
       console.log(result)
       that.setData({
-        rules: result.data.data,
-        showRules: result.data.data.local
+        rules: result.data,
+        showRules: result.data.local
       })
     }).catch(error => {
 

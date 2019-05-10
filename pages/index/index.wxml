@@ -27,7 +27,10 @@
     <view class="content">
         <view class="limit-line-title">
             <view class="limit-line-title-start">限行时间</view>
-            <view class="limit-line-title-end">{{showRules.rules[0].time.title}}</view>
+            <view class="limit-line-title-end">
+                <view class="title">{{showRules.rules[0].time.title}}</view>
+                <view class="subtitle">{{showRules.rules[0].time.subtitle}}</view>
+            </view>
         </view>
         <view class="limit-line-content">
             <view class="limit-line-content-start">限行规则</view>
