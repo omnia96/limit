@@ -85,21 +85,38 @@ Page({
       url: "http://localhost/wechatsever/xx/returndata.php",
       header: "Content-Type:application/json"
     }).then(result => {
-      console.log(result)
-      that.setData({
-        rules: result.data,
-        showRules: result.data.local
-      })
+      let res = result.data
+      console.log(res)
+      if(res.code = "200"){
+        console.log(res)
+        that.setData({
+          rules: res.data,
+          showRules: res.data.local
+        })
+        let userLimitInfo = app.getCache("userLimitInfo")
+        userLimitInfo["msg"] = true
+        let citycode = res.data.cityCode
+        userLimitInfo["data"][citycode] = res.data
+        app.setCache("userLimitInfo",userLimitInfo)
+      }
     }).catch(error => {
 
     })
   },
-
+  handleToContent(e){
+    console.log(e.currentTarget.dataset.citycode)
+    let type = e.currentTarget.dataset.type
+    let citycode = e.currentTarget.dataset.citycode
+    let id = e.currentTarget.id
+    wx.navigateTo({
+      url: '../limitDetails/limitDetails?citycode='+ citycode + '&id=' + id + '&type=' + type,
+    })
+  },
   initCache() {
-    let userLunarInfo = null
-    userLunarInfo = app.getCache("userLunarInfo")
-    if (userLunarInfo === false) {
-      app.setCache("userLunarInfo", {
+    let userLimitInfo = null
+    userLimitInfo = app.getCache("userLimitInfo")
+    if (userLimitInfo === false) {
+      app.setCache("userLimitInfo", {
         "msg": false,
         "data": {
           "defaut": "默认"
@@ -108,11 +125,11 @@ Page({
     }
   },
   lunarInfoIf(date) {
-    let userLunarInfo = app.getCache("userLunarInfo")
-    console.log(userLunarInfo)
-    if (userLunarInfo["msg"] == true) {
+    let userLimitInfo = app.getCache("userLimitInfo")
+    console.log(userLimitInfo)
+    if (userLimitInfo["msg"] == true) {
       //存在缓存数据
-      var data = userLunarInfo["data"]
+      var data = userLimitInfo["data"]
       if (data[date]) {
         return data[date]
       } else {

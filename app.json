@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/limitDetails/limitDetails",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/limitDetails/limitDetails",
+    "pages/logs/logs",
+    "pages/userCenter/userCenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,12 +16,12 @@
     "selectedColor": "black",
     "list": [
       {
-        "pagePath": "pages/limitDetails/limitDetails",
-        "text": "ca"
+        "pagePath": "pages/userCenter/userCenter",
+        "text": "userCenter"
       },
       {
         "pagePath": "pages/index/index",
-        "text": "b"
+        "text": "index"
       }
     ]
   },

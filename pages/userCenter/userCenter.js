@@ -1,40 +1,18 @@
-// pages/limitDetails/limitDetails.js
-const app = getApp()
+// pages/userCenter/userCenter.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    limitInfo:null,
-    scale:10
+
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    let citycode = options.citycode
-    let type = options.type
-    let id = options.id
 
-    let cache = app.getCache("userLimitInfo")
-    console.log(cache)
-    let limitInfo = cache["data"][citycode][type]["rules"][id]
-    console.log(limitInfo)
-    this.setData({
-        scale:limitInfo["scale"],
-        limitInfo:limitInfo,
-        longitude:limitInfo["centerPoint"]["longitude"],
-        latitude:limitInfo["centerPoint"]["latitude"],
-        polygon:[{
-            points:limitInfo["mapArea"],
-            strokeWidth:2,
-            strokeColor:"#000000",
-            fillColor:"#000fff50",
-            zIndex:1
-          }]
-    })
   },
 
   /**

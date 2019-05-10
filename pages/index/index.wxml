@@ -35,7 +35,7 @@
         <view class="limit-line-content">
             <view class="limit-line-content-start">限行规则</view>
             <view class="limit-line-content-end">
-                <view class="limit-line-content-end-item" wx:for="{{showRules.rules}}" wx:key="ke" wx:for-index="index" wx:for-item="item">
+                <view class="limit-line-content-end-item" wx:for="{{showRules.rules}}" wx:key="ke" wx:for-index="index" wx:for-item="item" id="{{index}}"data-type="local" data-cityCode="029" bind:tap="handleToContent">
                     <view >{{item.limitArea.title}}</view>
                     <view class="prompt">详细信息</view>
                 </view>
